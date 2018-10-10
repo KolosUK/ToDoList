@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ServiceApp/bin/Debug/netcoreapp2.1
+/ServiceApp/ClientApp/app/*.js
+/ServiceApp/ClientApp/app/*.js.map
+/ServiceApp/ClientApp/*.js
+/ServiceApp/ClientApp/*.js.map
+/ServiceApp/node_modules
+/ServiceApp/obj
+/ServiceApp/wwwroot/dist
+/ServiceApp/Properties
+/ServiceApp/package-lock.json
