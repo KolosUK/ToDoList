@@ -24,38 +24,127 @@
     </tbody>
 </table>
 
+<!--<ng-template #edit>-->
+    <!--<form (ngSubmit)="onSubmit(edt)" #edt="ngForm">
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text"
+                   class="form-control"
+                   ngModel
+                   name="model"
+                   required
+                   minlength=3
+                   maxlength=100 />
+            <small>Phone model name, from 3 till 100 characters</small>
+        </div>
+
+        <div class="form-group">
+            <label>Producer</label>
+            <input type="text"
+                   class="form-control"
+                   ngModel
+                   name="company"
+                   required
+                   minlength=3
+                   maxlength=100 />
+            <small>Phone company name, from 3 till 100 characters</small>
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number"
+                   class="form-control"
+                   ngModel
+                   name="price"
+                   required
+                   pattern="[0-9]{1,6}" />
+            <small>Phone price, from 0 till 999999</small>
+        </div>
+        
+        <button 
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!edt.valid">
+            Save
+        </button>
+        <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning" />
+    </form>-->
+    
+        <!--<td>
+            <input type="text" name="model" class="form-control" required minlength=3 maxlength=100 />
+        </td>
+        <td>
+            <input type="text"  ngModel name="company" class="form-control" required minlength=3 maxlength=100 />
+        </td>
+        <td>
+            <input type="number" ngModel name="price" required pattern="[0-9]{1,6}" class="form-control" />
+        </td>
+    <td>
+        <input type="button" value="Save" (click)="save()" class="btn btn-warning" />
+        <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning" />
+    </td>
+</ng-template>-->
 <ng-template #edit>
     <td>
-        <input type="text" [(ngModel)]="product.name" class="form-control" />
+        <input type="text" [(ngModel)]="product.name" class="form-control" maxlength="100" minlength=3 />
+        <small *ngIf="!validName" class="text-danger">Phone model name, from 3 till 100 characters </small>
     </td>
     <td>
         <input type="text" [(ngModel)]="product.company" class="form-control" />
+        <small *ngIf="!validCompany" class="text-danger">Phone company name, from 3 till 100 characters</small>
     </td>
     <td>
         <input type="text" [(ngModel)]="product.price" class="form-control" />
+        <small *ngIf="!validPrice" class="text-danger">Phone price, from 0 till 999999</small>
     </td>
     <td>
-        <input type="button" value="Save" (click)="save()" class="btn btn-sm btn-success" />
-        <input type="button" value="Cancel" (click)="cancel()" class="btn btn-sm btn-warning" />
+        <input type="button" value="Save" (click)="saveEdit(product)" class="btn btn-sm btn-success" />
+    <input type="button" value="Cancel" (click)="cancel()" class="btn btn-sm btn-warning" />
     </td>
-</ng-template>
-
+    
+       </ng-template>
 
 <ng-template #create>
-    <div class="form-group">
-        <label>Model</label>
-        <input type="text" [(ngModel)]="product.name" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Producer</label>
-        <input type="text" [(ngModel)]="product.company" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Price</label>
-        <input type="text" [(ngModel)]="product.price" class="form-control" />
-    </div>
-    <div>
-        <input type="button" value="Save" (click)="save()" class="btn btn-success" />
-        <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning" />
-    </div>
+    <form (ngSubmit)="onSubmit(f)" #f ="ngForm">
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text"
+                   class="form-control"
+                   ngModel
+                   name="model"
+                   required
+                   minlength=3
+                   maxlength=100 />
+            <small>Phone model name, from 3 till 100 characters</small>
+        </div>
+
+        <div class="form-group">
+            <label>Producer</label>
+            <input type="text"
+                   class="form-control"
+                   ngModel
+                   name="company"
+                   required
+                   minlength=3
+                   maxlength=100 />
+            <small>Phone company name, from 3 till 100 characters</small>
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number"
+                   class="form-control"
+                   ngModel
+                   name="price"
+                   required
+                   pattern="[0-9]{1,6}" />
+            <small>Phone price, from 0 till 999999</small>
+        </div>
+        
+            <button 
+                class="btn btn-success"
+                type="submit"
+                [disabled]="!f.valid">
+                Save
+            </button>
+            <input type="button" value="Cancel" (click)="cancel()" class="btn btn-warning" />
+    </form>
 </ng-template>
